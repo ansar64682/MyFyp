@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'accounts',
+    'paraphrasing',
+    'keywordtool',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'home', 'static', 'home', 'assets'),
     os.path.join(BASE_DIR, 'home', 'static', 'home', 'js'),
     os.path.join(BASE_DIR, 'accounts', 'static', 'accounts', 'css'),
+    os.path.join(BASE_DIR, 'paraphrasing', 'static', 'paraphrasing' , 'css'),
+    os.path.join(BASE_DIR, 'keywordtool', 'static', 'keywordtool', 'css'),
     
 ]
 
@@ -76,7 +80,9 @@ TEMPLATES = [
         'DIRS': [
                 os.path.join(BASE_DIR, 'templates'),
                 os.path.join(BASE_DIR, 'home', 'templates'),
-                os.path.join(BASE_DIR, 'accounts','templates'),    
+                os.path.join(BASE_DIR, 'accounts','templates'), 
+                os.path.join(BASE_DIR, 'paraphrasing', 'templates'),   
+                os.path.join(BASE_DIR, 'keywordtool', 'templates'),
             ],
         'APP_DIRS': True,
         'OPTIONS': {

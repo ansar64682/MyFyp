@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyword Tool</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'keywordtool/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Keyword Tool</h1>
+        <form method="post" action="{% url 'keyword_tool_view' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="keyword" placeholder="Enter keyword (max 60 chars)" value="{{ keyword }}">
+            </div>
+            <button type="submit">Generate Keywords</button>
+        </form>
+        
+        {% if long_tail_keywords %}
+        <h2>Long Tail Keywords</h2>
+        <ul>
+            {% for kw in long_tail_keywords %}
+            <li>{{ kw }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if lsi_keywords %}
+        <h2>LSI Keywords</h2>
+        <ul>
+            {% for kw in lsi_keywords %}
+            <li>{{ kw }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
